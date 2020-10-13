@@ -6,10 +6,10 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arjun.moviesbox.BuildConfig
+import com.arjun.moviesbox.GlideApp
 import com.arjun.moviesbox.R
 import com.arjun.moviesbox.databinding.MovieItemBinding
 import com.arjun.moviesbox.model.Movie
-import com.bumptech.glide.Glide
 
 class MovieAdapter : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(diffCallback) {
 
@@ -34,7 +34,7 @@ class MovieAdapter : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(diff
 
             binding.apply {
                 movieTitle.text = item?.title
-                Glide.with(itemView)
+                GlideApp.with(itemView)
                     .load(BuildConfig.TMDB_IMAGE_BASE_URL + item?.posterPath)
                     .placeholder(R.drawable.ic_undraw_images)
                     .error(R.drawable.ic_undraw_404)
