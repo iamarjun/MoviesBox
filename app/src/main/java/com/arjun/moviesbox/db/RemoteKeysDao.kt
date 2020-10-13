@@ -1,10 +1,10 @@
-package com.arjun.tmdb.db
+package com.arjun.moviesbox.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.arjun.tmdb.model.RemoteKeys
+import com.arjun.moviesbox.model.RemoteKeys
 
 @Dao
 interface RemoteKeysDao {

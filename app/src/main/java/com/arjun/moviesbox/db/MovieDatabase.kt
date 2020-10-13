@@ -6,12 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.arjun.moviesbox.model.Movie
 import com.arjun.moviesbox.model.RemoteKeys
-import com.arjun.tmdb.db.RemoteKeysDao
 
 @Database(
     entities = [Movie::class, RemoteKeys::class],
     exportSchema = false,
-    version = 1
+    version = 3
 )
 abstract class MovieDatabase : RoomDatabase() {
 

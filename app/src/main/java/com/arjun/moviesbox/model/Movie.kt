@@ -11,8 +11,6 @@ import com.squareup.moshi.JsonClass
 data class Movie(
     @Json(name = "adult")
     val adult: Boolean,
-    @Json(name = "backdrop_path")
-    val backdropPath: String,
     @PrimaryKey
     @Json(name = "id")
     val id: Int,
