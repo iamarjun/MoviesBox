@@ -86,7 +86,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     //Paging3
-    implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha07'
+    implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha06'
 
     //Store
     implementation 'com.dropbox.mobile.store:store4:4.0.0-beta01'
