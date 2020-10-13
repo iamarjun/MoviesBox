@@ -7,6 +7,11 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+Properties properties = new Properties()
+properties.load(rootProject.file('apiKey.properties').newDataInputStream())
+def apiKey = properties['TMDB_API_KEY']
+def accessKey = properties['TMDB_ACCESS_TOKEN']
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -19,6 +24,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "TMDB_API_KEY", apiKey)
+        buildConfigField("String", "TMDB_ACCESS_TOKEN", accessKey)
+        buildConfigField("String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"')
+        buildConfigField("String", "TMDB_IMAGE_BASE_URL", '"https://image.tmdb.org/t/p/w500"')
+        buildConfigField("String", "TMDB_IMAGE_342", '"https://image.tmdb.org/t/p/w342"')
+        buildConfigField("String", "YOUTUBE_VIDEO_URL", '"https://m.youtube.com/watch?v=%s"')
+        buildConfigField("String", "YOUTUBE_THUMBNAIL_URL", '"https://img.youtube.com/vi/%s/0.jpg"')
     }
 
     buildTypes {
