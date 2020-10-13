@@ -3,4 +3,23 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="poster_content">Poster</string>
+    <string name="movies_tab">Movies</string>
+    <string name="tv_shows_tab">TV Shows</string>
+    <string name="overview">Plot Summary</string>
+    <string name="rating_ex" translatable="false">5.5</string>
+    <string name="genre_ex">Horror, Fiction</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="trailers">Trailers</string>
+    <string name="icStar">icStar</string>
+    <string name="image_before_loading">image before loading</string>
+    <string name="favorite">Favorite</string>
+    <string name="trailer_title">Trailer Title</string>
+    <string name="similar">You may also like</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="search">Search</string>
+
 </resources>

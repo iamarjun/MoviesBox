@@ -5,36 +5,54 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.arjun.moviesbox.R
 import com.arjun.moviesbox.databinding.FragmentHomeBinding
+import com.arjun.moviesbox.util.Resource
 import com.arjun.moviesbox.util.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-
+    private val homeViewModel: HomeViewModel by viewModels()
     private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
+    private val movieAdapter: MovieAdapter by lazy { MovieAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        return root
+
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.textHome.text = it
-        })
+        binding.movieList.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = movieAdapter
+        }
+
+
+        homeViewModel.popularMovies.observe(viewLifecycleOwner) {
+            when (it) {
+
+                is Resource.Loading -> {
+                    Timber.d("loading")
+                }
+                is Resource.Success -> {
+                    Timber.d(it.data.toString())
+                }
+                is Resource.Error -> {
+                    Timber.e(it.exception)
+                }
+            }
+        }
+
     }
 }
