@@ -17,10 +17,12 @@
     <string name="favorite">Favorite</string>
     <string name="trailer_title">Trailer Title</string>
     <string name="similar">You may also like</string>
-    <string name="popular">Popular</string>
-    <string name="top_rated">Top Rated</string>
-    <string name="now_playing">Now Playing</string>
     <string name="search">Search</string>
     <string name="retry">Retry</string>
+    <string name="trending">Trending</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="upcoming">Upcoming</string>
 
 </resources>

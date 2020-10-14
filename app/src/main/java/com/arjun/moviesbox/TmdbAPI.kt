@@ -2,6 +2,7 @@ package com.arjun.moviesbox
 
 import com.arjun.moviesbox.model.MovieResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TmdbAPI {
@@ -26,4 +27,9 @@ interface TmdbAPI {
         @Query("page") page: Int
     ): MovieResponse
 
+    @GET("trending/{media_type}/{time_window}")
+    suspend fun getTrending(
+        @Path("media_type") mediaType: String,
+        @Path("time_window") timeWindow: String,
+    ): MovieResponse
 }

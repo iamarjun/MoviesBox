@@ -1,4 +1,4 @@
-package com.arjun.moviesbox.ui.notifications
+package com.arjun.moviesbox.ui.popularMovies
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arjun.moviesbox.R
-import com.arjun.moviesbox.databinding.FragmentNotificationsBinding
+import com.arjun.moviesbox.databinding.FragmentHomeBinding
 import com.arjun.moviesbox.ui.MovieAdapter
 import com.arjun.moviesbox.util.Resource
 import com.arjun.moviesbox.util.viewBinding
@@ -17,10 +17,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class NotificationsFragment : Fragment() {
+class PopularMoviesFragment : Fragment() {
 
-    private val viewModel: NotificationsViewModel by viewModels()
-    private val binding: FragmentNotificationsBinding by viewBinding(FragmentNotificationsBinding::bind)
+    private val popularMoviesViewModel: PopularMoviesViewModel by viewModels()
+    private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
     private val movieAdapter: MovieAdapter by lazy { MovieAdapter() }
 
     override fun onCreateView(
@@ -29,7 +29,7 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_notifications, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class NotificationsFragment : Fragment() {
             adapter = movieAdapter
         }
 
-        viewModel.upcomingMovies.observe(viewLifecycleOwner) {
+        popularMoviesViewModel.popularMovies.observe(viewLifecycleOwner) {
 
             binding.progressBar.isVisible = it is Resource.Loading
 

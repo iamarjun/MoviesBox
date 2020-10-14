@@ -3,24 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_popular">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.arjun.moviesbox.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:id="@+id/navigation_popular"
+        android:name="com.arjun.moviesbox.ui.popularMovies.PopularMoviesFragment"
+        android:label="@string/popular"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.arjun.moviesbox.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:id="@+id/navigation_top_rated"
+        android:name="com.arjun.moviesbox.ui.topRatedMovies.TopRatedMoviesFragment"
+        android:label="@string/top_rated"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.arjun.moviesbox.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/navigation_upcoming"
+        android:name="com.arjun.moviesbox.ui.upcomingMovies.UpcomingMoviesFragment"
+        android:label="@string/upcoming"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_now_playing"
+        android:name="com.arjun.moviesbox.ui.nowPlayingMovies.NowPlayingMoviesFragment"
+        android:label="@string/now_playing"
+        tools:layout="@layout/now_playing_movies_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_trending"
+        android:name="com.arjun.moviesbox.ui.trending.TrendingFragment"
+        android:label="@string/trending"
+        tools:layout="@layout/trending_fragment" />
 
 </navigation>

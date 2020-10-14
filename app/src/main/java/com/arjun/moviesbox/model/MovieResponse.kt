@@ -1,17 +1,15 @@
 package com.arjun.moviesbox.model
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class MovieResponse(
-    @Json(name = "page")
-    val page: Int? = 0,
-    @Json(name = "results")
+    @SerializedName("page")
+    val page: Int = 0,
+    @SerializedName("results")
     val movies: List<Movie> = listOf(),
-    @Json(name = "total_pages")
-    val totalPages: Int? = 0,
-    @Json(name = "total_results")
-    val totalResults: Int? = 0
+    @SerializedName("total_pages")
+    val totalPages: Int = 0,
+    @SerializedName("total_results")
+    val totalResults: Int = 0
 )

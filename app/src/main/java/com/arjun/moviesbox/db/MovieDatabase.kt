@@ -11,7 +11,7 @@ import com.arjun.moviesbox.model.RemoteKeys
 @Database(
     entities = [Movie::class, RemoteKeys::class],
     exportSchema = false,
-    version = 7
+    version = 8
 )
 @TypeConverters(Converters::class)
 abstract class MovieDatabase : RoomDatabase() {

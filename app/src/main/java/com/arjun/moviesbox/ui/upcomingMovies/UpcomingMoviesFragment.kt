@@ -1,4 +1,4 @@
-package com.arjun.moviesbox.ui.dashboard
+package com.arjun.moviesbox.ui.upcomingMovies
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arjun.moviesbox.R
-import com.arjun.moviesbox.databinding.FragmentDashboardBinding
+import com.arjun.moviesbox.databinding.FragmentNotificationsBinding
 import com.arjun.moviesbox.ui.MovieAdapter
 import com.arjun.moviesbox.util.Resource
 import com.arjun.moviesbox.util.viewBinding
@@ -17,10 +17,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class DashboardFragment : Fragment() {
+class UpcomingMoviesFragment : Fragment() {
 
-    private val viewModel: DashboardViewModel by viewModels()
-    private val binding: FragmentDashboardBinding by viewBinding(FragmentDashboardBinding::bind)
+    private val viewModel: UpcomingMoviesViewModel by viewModels()
+    private val binding: FragmentNotificationsBinding by viewBinding(FragmentNotificationsBinding::bind)
     private val movieAdapter: MovieAdapter by lazy { MovieAdapter() }
 
     override fun onCreateView(
@@ -28,7 +28,8 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        return inflater.inflate(R.layout.fragment_notifications, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class DashboardFragment : Fragment() {
             adapter = movieAdapter
         }
 
-        viewModel.topRatedMovies.observe(viewLifecycleOwner) {
+        viewModel.upcomingMovies.observe(viewLifecycleOwner) {
 
             binding.progressBar.isVisible = it is Resource.Loading
 
