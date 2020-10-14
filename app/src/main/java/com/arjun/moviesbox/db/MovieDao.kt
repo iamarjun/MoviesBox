@@ -1,9 +1,8 @@
 package com.arjun.moviesbox.db
 
-import androidx.lifecycle.LiveData
-import androidx.paging.PagingSource
 import androidx.room.*
 import com.arjun.moviesbox.model.Movie
+import com.arjun.moviesbox.model.MovieType
 
 @Dao
 interface MovieDao {
@@ -12,21 +11,12 @@ interface MovieDao {
     suspend fun insertMovieList(list: List<Movie>)
 
     @Update
-    suspend fun updateMovie(recipe: Movie)
+    suspend fun updateMovie(movie: Movie)
 
-    @Query("select * from movie where id like '%'||:movieId||'%'")
-    suspend fun getMovie(movieId: String): Movie
+    @Query("select * from movie where movieType = :movieType")
+    fun getMovieList(movieType: MovieType): List<Movie>
 
-    @Query("select * from movie where id like '%'||:movieId||'%'")
-    fun getMovieLiveData(movieId: String): LiveData<Movie>
-
-    @Query("select * from movie order by popularity desc")
-    fun getMovieList(): PagingSource<Int, Movie>
-
-    @Query("select count(*) from movie where lower(title) like '%'||:query||'%'")
-    suspend fun getCount(query: String): Int
-
-    @Query("DELETE FROM movie")
+    @Query("delete from movie")
     suspend fun clearMovie()
 
 }

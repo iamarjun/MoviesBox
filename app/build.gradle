@@ -74,9 +74,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 
     //Room
-    implementation 'androidx.room:room-runtime:2.3.0-alpha02'
-    kapt 'androidx.room:room-compiler:2.3.0-alpha02'
-    implementation 'androidx.room:room-ktx:2.3.0-alpha02'
+    implementation 'androidx.room:room-runtime:2.2.5'
+    kapt 'androidx.room:room-compiler:2.2.5'
+    implementation 'androidx.room:room-ktx:2.2.5'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
@@ -84,9 +84,6 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
-    //Paging3
-    implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha06'
 
     //Store
     implementation 'com.dropbox.mobile.store:store4:4.0.0-beta01'

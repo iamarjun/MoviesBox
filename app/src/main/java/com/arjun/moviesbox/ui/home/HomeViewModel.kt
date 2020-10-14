@@ -17,7 +17,6 @@ class HomeViewModel @ViewModelInject constructor(private val restApi: TmdbAPI) :
     val text: LiveData<String> = _text
 
 
-    private val _popularMovies by lazy { MutableLiveData<Resource<List<Movie>>>() }
 
     val popularMovies: LiveData<Resource<List<Movie>>>
         get() = liveData {

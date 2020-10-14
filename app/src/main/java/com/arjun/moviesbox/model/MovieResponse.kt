@@ -7,11 +7,11 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class MovieResponse(
     @Json(name = "page")
-    val page: Int,
+    val page: Int? = 0,
     @Json(name = "results")
-    val movies: List<Movie>,
+    val movies: List<Movie> = listOf(),
     @Json(name = "total_pages")
-    val totalPages: Int,
+    val totalPages: Int? = 0,
     @Json(name = "total_results")
-    val totalResults: Int
+    val totalResults: Int? = 0
 )

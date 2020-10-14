@@ -10,28 +10,31 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Movie(
     @Json(name = "adult")
-    val adult: Boolean,
+    val adult: Boolean? = false,
+    @Json(name = "backdrop_path")
+    val backdropPath: String? = "",
     @PrimaryKey
     @Json(name = "id")
-    val id: Int,
+    val id: Int? = 0,
     @Json(name = "original_language")
-    val originalLanguage: String,
+    val originalLanguage: String? = "",
     @Json(name = "original_title")
-    val originalTitle: String,
+    val originalTitle: String? = "",
     @Json(name = "overview")
-    val overview: String,
+    val overview: String? = "",
     @Json(name = "popularity")
-    val popularity: Double,
+    val popularity: Double? = 0.0,
     @Json(name = "poster_path")
-    val posterPath: String,
+    val posterPath: String? = "",
     @Json(name = "release_date")
-    val releaseDate: String,
+    val releaseDate: String? = "",
     @Json(name = "title")
-    val title: String,
+    val title: String? = "",
     @Json(name = "video")
-    val video: Boolean,
+    val video: Boolean? = false,
     @Json(name = "vote_average")
-    val voteAverage: Double,
+    val voteAverage: Double? = 0.0,
     @Json(name = "vote_count")
-    val voteCount: Int
+    val voteCount: Int? = 0,
+    var movieType: MovieType = MovieType.NONE
 )
