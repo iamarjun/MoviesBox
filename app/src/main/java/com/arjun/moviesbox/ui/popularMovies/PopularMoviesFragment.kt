@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.arjun.moviesbox.R
 import com.arjun.moviesbox.databinding.FragmentHomeBinding
 import com.arjun.moviesbox.ui.MovieAdapter
+import com.arjun.moviesbox.util.EqualSpacingItemDecoration
 import com.arjun.moviesbox.util.Resource
 import com.arjun.moviesbox.util.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,7 @@ class PopularMoviesFragment : Fragment() {
 
         binding.movieList.apply {
             layoutManager = GridLayoutManager(context, 2)
+            addItemDecoration(EqualSpacingItemDecoration(16, EqualSpacingItemDecoration.GRID))
             adapter = movieAdapter
         }
 

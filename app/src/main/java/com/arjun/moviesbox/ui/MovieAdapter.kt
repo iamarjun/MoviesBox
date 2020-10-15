@@ -66,12 +66,16 @@ class MovieAdapter(private val interaction: Interaction? = null) :
 
             binding.apply {
                 movieTitle.text = item.title
+
                 GlideApp.with(itemView)
                     .load(BuildConfig.TMDB_IMAGE_BASE_URL + item.posterPath)
                     .placeholder(R.drawable.ic_undraw_images)
                     .error(R.drawable.ic_undraw_404)
                     .centerCrop()
                     .into(moviePoster)
+
+                ratingText.text = item.voteAverage.toString()
+
                 root.setOnClickListener {
                     interaction?.onItemSelected(adapterPosition, item = item)
                 }
