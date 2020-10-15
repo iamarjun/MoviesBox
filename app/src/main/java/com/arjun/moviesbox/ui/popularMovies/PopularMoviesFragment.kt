@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arjun.moviesbox.R
 import com.arjun.moviesbox.databinding.FragmentHomeBinding
+import com.arjun.moviesbox.model.Movie
 import com.arjun.moviesbox.ui.MovieAdapter
+import com.arjun.moviesbox.ui.detail.MovieDetailsActivity
 import com.arjun.moviesbox.util.EqualSpacingItemDecoration
 import com.arjun.moviesbox.util.Resource
 import com.arjun.moviesbox.util.viewBinding
@@ -22,7 +24,13 @@ class PopularMoviesFragment : Fragment() {
 
     private val popularMoviesViewModel: PopularMoviesViewModel by viewModels()
     private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
-    private val movieAdapter: MovieAdapter by lazy { MovieAdapter() }
+    private val movieAdapter: MovieAdapter by lazy {
+        MovieAdapter(object : MovieAdapter.Interaction {
+            override fun onItemSelected(position: Int, item: Movie) {
+                startActivity(MovieDetailsActivity.getIntent(requireContext(), item.id))
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

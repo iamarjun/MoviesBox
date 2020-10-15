@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:alpha="0.9"
-            app:cardBackgroundColor="@android:color/white"
+            app:cardBackgroundColor="@color/white"
             app:cardElevation="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">

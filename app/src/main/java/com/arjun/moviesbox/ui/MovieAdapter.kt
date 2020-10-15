@@ -14,7 +14,7 @@ import com.arjun.moviesbox.model.Movie
 class MovieAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
+    private val differCallback = object : DiffUtil.ItemCallback<Movie>() {
 
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.id == newItem.id
@@ -25,7 +25,7 @@ class MovieAdapter(private val interaction: Interaction? = null) :
         }
 
     }
-    private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+    private val differ = AsyncListDiffer(this, differCallback)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
